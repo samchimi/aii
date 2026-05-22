@@ -1,0 +1,268 @@
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&family=Merriweather:wght@400;700&display=swap');
+
+/* --- Color Palette & Variables --- */
+:root {
+    --primary-color: #d81b60; /* Deep Pink - passionate */
+    --secondary-color: #f48fb1; /* Light Pink - soft, romantic */
+    --accent-color: #ffd54f; /* Amber - warm, golden */
+    --light-background: #fff8f8; /* Very Light Pink background */
+    --text-color: #424242; /* Dark Gray for text */
+    --light-text-color: #757575; /* Lighter Gray */
+    --section-background: #ffffff; /* White for content blocks */
+    --footer-background: #f8bbd0; /* Slightly deeper pink for footer */
+    --heading-font: 'Playfair Display', serif;
+    --script-font: 'Great Vibes', cursive; /* For special titles/names */
+    --body-font: 'Merriweather', serif;
+}
+
+/* --- Global Styles & Animations --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--body-font);
+    line-height: 1.8;
+    color: var(--text-color);
+    background-color: var(--light-background);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 95%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* --- Keyframe Animations --- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sparkle {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* --- Header --- */
+.site-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.site-header::before { /* Sparkle effect */
+    content: '✨';
+    position: absolute;
+    font-size: 6em;
+    color: var(--accent-color);
+    opacity: 0.8;
+    animation: sparkle 5s infinite ease-in-out;
+    z-index: 0;
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 2s ease-out forwards;
+}
+
+.site-title {
+    font-family: var(--script-font); /* Use script font for the main title */
+    font-size: 5.5em;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+.tagline {
+    font-family: var(--heading-font);
+    font-size: 1.5em;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.5px;
+}
+
+/* --- Navigation --- */
+.main-nav {
+    background-color: var(--footer-background);
+    padding: 15px 0;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.main-nav li {
+    margin: 0 18px;
+}
+
+.main-nav a {
+    font-family: var(--heading-font);
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+}
+
+.main-nav a:hover,
+.main-nav a:focus {
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: translateY(-2px);
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* --- Section Styling --- */
+.container section {
+    background-color: var(--section-background);
+    margin-bottom: 40px;
+    padding: 50px 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-header h2 {
+    font-family: var(--heading-font);
+    font-size: 2.8em;
+    color: var(--primary-color);
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+/* --- Welcome Section --- */
+.welcome-section .welcome-content {
+    text-align: center;
+}
+
+.welcome-section p {
+    font-size: 1.2em;
+    color: var(--light-text-color);
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.welcome-section .couple-photo-main {
+    margin: 40px auto;
+    max-width: 400px; /* Adjust as needed */
+    border-radius: 50%; /* Make it circular */
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border: 6px solid var(--secondary-color);
+    animation: sparkle 6s infinite ease-in-out;
+}
+
+.welcome-section .couple-photo-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- Memories Section --- */
+.memories-section .memories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.memory-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--section-background);
+    display: flex;
+    flex-direction: column; /* Stack image and caption */
+}
+
+.memory-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.memory-item img {
+    width: 100%;
+    height: 250px; /* Fixed height for images */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.memory-item:hover img {
+    transform: scale(1.1);
+}
+
+.memory-caption {
+    padding: 20px;
+    text-align: center;
+    background-color: var(--light-background); /* Light background for caption */
+    flex-grow: 1; /* Allows caption to take available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
